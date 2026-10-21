@@ -11,24 +11,6 @@ currently the only supported provider for embeddings and generated answers.
 > you must add or update an OpenAI API key before uploading, indexing, or
 > searching documents. The same key enables RAG-generated answers.
 
-## Recruiter showcase
-
-A separate, Vercel-ready Next.js website lives in [`showcase/`](showcase). It
-explains the ingestion pipeline, hybrid retrieval and ranking strategy,
-collection boundaries, SQLite/LanceDB split, and OpenAI data boundary.
-
-Run it locally with:
-
-```bash
-cd showcase
-bun install --frozen-lockfile
-bun run dev
-```
-
-For Vercel, import this repository and set the project **Root Directory** to
-`showcase`. No environment variables are required. To show a prominent source
-code link, optionally set `NEXT_PUBLIC_REPOSITORY_URL` to the repository URL.
-
 ## Features
 
 - Start with a default collection and create additional collections to keep
@@ -140,26 +122,26 @@ OpenAI embeddings. Answer generation also currently supports OpenAI only.
 
 ## Supported files
 
-| Format | Extensions |
-| --- | --- |
-| PDF | `.pdf` |
-| Word | `.docx` |
-| HTML | `.html`, `.htm` |
-| Markdown | `.md`, `.markdown` |
-| Plain text | `.txt` |
+| Format     | Extensions         |
+| ---------- | ------------------ |
+| PDF        | `.pdf`             |
+| Word       | `.docx`            |
+| HTML       | `.html`, `.htm`    |
+| Markdown   | `.md`, `.markdown` |
+| Plain text | `.txt`             |
 
 PDF processing extracts existing text and does not perform OCR. Scanned or
 image-only PDFs may therefore contain no searchable text.
 
 ## Configuration
 
-| Environment variable | Purpose | Default |
-| --- | --- | --- |
-| `OPENAI_API_KEY` | OpenAI key used for embeddings and answer generation | Not set |
-| `OPENAI_BASE_URL` | OpenAI API base URL | `https://api.openai.com/v1/` |
-| `RAG_EMBEDDING_MODEL` | Embedding model | `text-embedding-3-small` |
-| `OPENAI_GENERATION_MODEL` | Answer-generation model | `gpt-5.4-mini` |
-| `RAG_DATA_DIR` | Database, index, settings, and uploaded-file directory | `./rag-data` locally; `/app/data` in Docker |
+| Environment variable      | Purpose                                                | Default                                     |
+| ------------------------- | ------------------------------------------------------ | ------------------------------------------- |
+| `OPENAI_API_KEY`          | OpenAI key used for embeddings and answer generation   | Not set                                     |
+| `OPENAI_BASE_URL`         | OpenAI API base URL                                    | `https://api.openai.com/v1/`                |
+| `RAG_EMBEDDING_MODEL`     | Embedding model                                        | `text-embedding-3-small`                    |
+| `OPENAI_GENERATION_MODEL` | Answer-generation model                                | `gpt-5.4-mini`                              |
+| `RAG_DATA_DIR`            | Database, index, settings, and uploaded-file directory | `./rag-data` locally; `/app/data` in Docker |
 
 ## Local development
 
