@@ -1,0 +1,24 @@
+.git
+.github
+.cursor
+.codex
+.agents
+
+node_modules
+**/node_modules
+dist
+out
+showcase
+coverage
+logs
+*.log
+*.tgz
+*.tsbuildinfo
+
+# Local state and secrets must never be copied into an image.
+rag-data
+.env
+.env.*
+!.env.example
+
+.DS_Store

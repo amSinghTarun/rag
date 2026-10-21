@@ -1,0 +1,11 @@
+{
+  "name": "@rag/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@rag": "workspace:*",
+    "react": "latest",
+    "react-dom": "latest"
+  }
+}

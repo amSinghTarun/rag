@@ -1,0 +1,32 @@
+{
+  "name": "local-rag",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bun --hot apps/web/src/server.ts",
+    "start": "bun apps/web/src/server.ts",
+    "reindex": "bun scripts/reindex.ts",
+    "typecheck": "bunx tsc --noEmit",
+    "test": "bun test packages/rag/tests",
+    "build:web": "bun build apps/web/index.html --outdir dist/web --target browser",
+    "build": "bun run typecheck && bun run build:web"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest"
+  },
+  "overrides": {
+    "sharp": "0.35.4"
+  },
+  "trustedDependencies": [
+    "@lancedb/lancedb",
+    "sharp"
+  ]
+}
